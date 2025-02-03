@@ -6,7 +6,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(QT_QML_OUTPUT_DIRECTORY  ${CMAKE_BINARY_DIR})
 
-find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
+find_package(Qt6 6.2 REQUIRED COMPONENTS Quick)
 
 qt_add_library(FileSystemView STATIC)
 qt_add_qml_module(FileSystemView
@@ -16,6 +16,12 @@ qt_add_qml_module(FileSystemView
     SOURCES
     QML_FILES FileSystemView.qml
     SOURCES directorymodel.h directorymodel.cpp
+    QML_FILES DirectoryToolBar.qml
+    QML_FILES DirectoryContextMenu.qml
+    QML_FILES FileToolBar.qml
+    QML_FILES FileContextMenu.qml
+    QML_FILES FileDelegate.qml
+    QML_FILES DirectoryDelegate.qml
 )
 
 set_target_properties(FileSystemView PROPERTIES
